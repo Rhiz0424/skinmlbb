@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Pembayaran</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #800000 0%, #b22222 100%);
+      min-height: 100vh;
+      color: #fff;
+    }
+    .form-container {
+      background: rgba(255,255,255,0.97);
+      max-width: 420px;
+      margin: 60px auto 0 auto;
+      padding: 38px 32px 32px 32px;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+      text-align: center;
+      position: relative;
+    }
+    .form-container h2 {
+      margin-top: 0;
+      font-size: 2em;
+      background: linear-gradient(90deg, #ffb347 0%, #ff5252 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="number"],
+    .form-container select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 18px 0;
+      border: none;
+      border-radius: 8px;
+      background: #f8f8f8;
+      font-size: 1em;
+      color: #800000;
+      box-shadow: 0 2px 8px rgba(128,0,0,0.07);
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    .form-container input[type="text"]:focus,
+    .form-container input[type="number"]:focus,
+    .form-container select:focus {
+      box-shadow: 0 4px 16px rgba(178,34,34,0.13);
+    }
+    .form-container label {
+      color: #b22222;
+      font-weight: 600;
+      display: block;
+      text-align: left;
+      margin-bottom: 4px;
+      margin-top: 10px;
+    }
+    .form-container button {
+      width: 48%;
+      padding: 12px;
+      background: linear-gradient(90deg, #b22222 60%, #ff5252 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 8px 1%;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(128,0,0,0.13);
+    }
+    .form-container button:hover {
+      background: linear-gradient(90deg, #ff5252 0%, #b22222 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 18px 6px;
+      }
+      .form-container button {
+        width: 100%;
+        margin: 8px 0;
+      }
+    }
+  </style>
+  <script>
+    const produkList = {
+      "ling neobeast": 10000,
+      "ling collector": 15000,
+      "ling starlight": 20000,
+      "ling dragon tamer": 25000,
+      "lacelot dawning": 30000,
+      "lancelot zodiac": 35000,
+      "lancelot zenith": 18000,
+      "lancelot champion": 12000,
+      "hayabusa 11.11": 11000,
+      "hayabusa starlight": 13000,
+      "hayabusa epic": 27000,
+      "hayabusa exorcist": 26000,
+      "grangger agen Z": 21000,
+      "grangger legend": 22000,
+      "grangger valentine": 23000,
+      "grangger transformer": 24000,
+      "Iritel zodiac": 16000,
+      "Iritel ducati": 17000,
+      "Iritel starlight": 19000,
+      "Iritel epic": 28000,
+      "harith zodiac": 14000,
+      "harith starlight": 16000,
+      "harith epic": 19000,
+      "harith collector": 21000,
+
+    };
+
+    function setHarga(selectId, hargaId) {
+      const produk = document.getElementById(selectId).value;
+      document.getElementById(hargaId).value = produkList[produk] || '';
+      hitungTotal();
+    }
+
+    function hitungTotal() {
+      const harga1 = parseInt(document.getElementById('harga1').value || 0);
+      const jumlah1 = parseInt(document.getElementById('jumlah1').value || 0);
+      const harga2 = parseInt(document.getElementById('harga2').value || 0);
+      const jumlah2 = parseInt(document.getElementById('jumlah2').value || 0);
+
+      const total = (harga1 * jumlah1) + (harga2 * jumlah2);
+      document.getElementById('total').value = total;
+    }
+
+    function handleSubmit() {
+      const nama = document.querySelector('input[placeholder="NAMA"]').value;
+      const nim = document.querySelector('input[placeholder="NIM"]').value;
+      const jurusan = document.querySelector('input[placeholder="JURUSAN"]').value;
+      const total = document.getElementById('total').value;
+      alert(
+        'Pembayaran berhasil!\n' +
+        'Nama: ' + nama +
+        '\nNIM: ' + nim +
+        '\nJurusan: ' + jurusan +
+        '\nTotal Pembayaran: ' + total
+      );
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>FORM PEMBAYARAN</h2>
+    <form onsubmit="event.preventDefault(); handleSubmit();">
+      <input type="text" placeholder="NAMA" required>
+      <input type="text" placeholder="NIM" required>
+      <input type="text" placeholder="JURUSAN" required>
+
+      <div style="display: flex; gap: 16px; margin-bottom: 18px;">
+        <div style="flex:1;">
+          <label>Produk 1:</label>
+          <select id="produk1" onchange="setHarga('produk1', 'harga1')" required>
+            <option value="">Pilih Produk 1</option>
+            <option value="ling neobeast">Ling Neobeast</option>
+            <option value="ling collector">Ling Collector</option>
+            <option value="ling starlight">Ling Starlight</option>
+            <option value="ling dragon tamer">Ling Dragon Tamer</option>
+            <option value="lacelot dawning">Lacelot Dawning</option>
+            <option value="lancelot zodiac">Lancelot Zodiac</option>
+            <option value="lancelot zenith">lancelot Zenith</option>
+            <option value="lancelot champion">Lancelot Champion</option>
+            <option value="hayabusa 11.11">Hayabusa 11.11</option>
+            <option value="hayabusa starlight">Hayabusa starlight</option>
+            <option value="hayabusa epic">Hayabusa Epic</option>
+            <option value="hayabusa exorcicst">Hayabusa Exorcicst</option>
+          </select>
+          <input type="number" id="harga1" placeholder="HARGA" onchange="hitungTotal()" required>
+          <input type="number" id="jumlah1" placeholder="JUMLAH BELI" min="0" onchange="hitungTotal()">
+        </div>
+        <div style="flex:1;">
+          <label>Produk 2:</label>
+          <select id="produk2" onchange="setHarga('produk2', 'harga2')" required>
+            <option value="">Pilih Produk 2</option>
+            <option value="Ling">Ling</option>
+            <option value="Lancelot">Lancelot</option>
+            <option value="Hayabusa">Hayabusa</option>
+            <option value="Grangger">Grangger</option>
+            <option value="Irithel">Irithel</option>
+            <option value="Harith">Harith</option>
+            <option value="Alucard">Alucard</option>
+            <option value="Miya">Miya</option>
+            <option value="Layla">Layla</option>
+            <option value="Zilong">Zilong</option>
+            <option value="Fanny">Fanny</option>
+             <option value="Gusion">Gusion</option>
+          </select>
+          <input type="number" id="harga2" placeholder="HARGA" onchange="hitungTotal()" required>
+          <input type="number" id="jumlah2" placeholder="JUMLAH BELI" min="0" onchange="hitungTotal()">
+        </div>
+      </div>
+
+      <input type="text" id="total" placeholder="TOTAL BAYAR" readonly><br>
+
+      <button type="submit">SUBMIT</button>
+      <button type="button" onclick="window.location.href='home.html'">KEMBALI MENU UTAMA</button>
+    </form>
+  </div>
+</body>
+</html>

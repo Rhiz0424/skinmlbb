@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #800000 0%, #b22222 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .kontak-container {
+            background: rgba(255,255,255,0.97);
+            max-width: 420px;
+            margin: 60px auto 0 auto;
+            padding: 38px 32px 32px 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+            text-align: center;
+            position: relative;
+        }
+        .kontak-container h2 {
+            margin-top: 0;
+            font-size: 2em;
+            background: linear-gradient(90deg, #ffb347 0%, #ff5252 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .kontak-container p {
+            color: #800000;
+            margin-bottom: 24px;
+        }
+        .kontak-form input, .kontak-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 18px 0;
+            border: none;
+            border-radius: 8px;
+            background: #f8f8f8;
+            font-size: 1em;
+            color: #800000;
+            box-shadow: 0 2px 8px rgba(128,0,0,0.07);
+            resize: none;
+        }
+        .kontak-form textarea {
+            min-height: 80px;
+        }
+        .kontak-form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #b22222 60%, #ff5252 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(128,0,0,0.13);
+        }
+        .kontak-form button:hover {
+            background: linear-gradient(90deg, #ff5252 0%, #b22222 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .info-kontak {
+            margin-top: 30px;
+            text-align: left;
+            color: #b22222;
+            font-size: 1em;
+        }
+        .info-kontak strong {
+            color: #800000;
+        }
+        @media (max-width: 600px) {
+            .kontak-container {
+                padding: 18px 6px;
+            }
+        }
+   .navbar {
+            background: linear-gradient(90deg, #800000 60%, #b22222 100%);
+            box-shadow: 0 2px 8px rgba(128,0,0,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+        .navbar a, .dropbtn {
+            font-size: 1em;
+            color: #fff;
+            text-align: center;
+            padding: 16px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background: #a83232;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #fff;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(128,0,0,0.13);
+            z-index: 1;
+            border-radius: 0 0 10px 10px;
+            left: 0;
+            top: 100%;
+        }
+        .dropdown-content a {
+            color: #800000;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a:hover {
+            background: #f5eaea;
+            color: #b22222;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .navbar .right {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ffe259;
+            letter-spacing: 2px;
+            padding: 16px 32px;
+            background: none;
+            text-shadow: 1px 1px 4px #80000080;
+        }
+        @media (max-width: 700px) {
+            .navbar a, .dropbtn, .dropdown-content a, .navbar .right {
+                padding: 12px 10px;
+                font-size: 0.95em;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar .right {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+       <div class="navbar">
+        <div class="navbar-menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Produk 1 ▼</button>
+                <div class="dropdown-content">
+                    <a href="ling.html">LING</a>
+                    <a href="lancelot.html">LANCELOT</a>
+                    <a href="hayabusa.html">HAYABUSA</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Produk 2 ▼</button>
+                <div class="dropdown-content">
+                    <a href="grangger.html">GRANGGER</a>
+                    <a href="irithel.html">IRITHEL</a>
+                    <a href="harith.html">HARITH</a>
+                </div>
+            </div>
+            <a href="tentang.html">Tentang</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+       <span class="right" onclick="window.location.href='cover.html'">Rhizzz</span>
+    </div>
+    <div class="kontak-container">
+        <h2>Hubungi Kami</h2>
+        <p>Silakan isi form di bawah ini untuk menghubungi kami. Kami akan segera membalas pesan Anda!</p>
+        <form class="kontak-form">
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <textarea placeholder="Pesan Anda" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+        <div class="info-kontak">
+            <p><strong>Email:</strong> arizkardiansyah@gmail.com</p>
+            <p><strong>Telepon:</strong> 0831-1677-0034</p>
+            <p><strong>Alamat:</strong> Jl.Galvax City</p>
+        </div>
+    </div>
+</body>
+</html>

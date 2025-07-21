@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grangger</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+     background: url(https://static.vecteezy.com/system/resources/previews/006/596/933/non_2x/abstract-dark-red-background-dark-lines-glow-waves-flicker-vector.jpg) no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: #fff;
+        }
+        .produk-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            padding: 40px 10px;
+        }
+        .produk-card {
+            background: rgba(255,255,255,0.13);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(80,0,0,0.13);
+            width: 240px;
+            text-align: center;
+            padding: 24px 16px 20px 16px;
+            position: relative;
+        }
+        .produk-card img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(80,0,0,0.13);
+            background: #fff;
+        }
+        .produk-card h3 {
+            margin: 18px 0 10px 0;
+            color: #ffe259;
+            font-size: 1.15em;
+        }
+        .produk-card button {
+            padding: 10px 28px;
+            background: linear-gradient(90deg, #b22222 60%, #ff5252 100%);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .produk-card button:hover {
+            background: linear-gradient(90deg, #ff5252 0%, #b22222 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .popup-bg {
+            display: none;
+            position: fixed;
+            z-index: 99;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.55);
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-bg.active {
+            display: flex;
+        }
+        .popup-content {
+            background: #fff;
+            color: #800000;
+            border-radius: 16px;
+            padding: 32px 28px 24px 28px;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+            position: relative;
+        }
+        .popup-content h2 {
+            margin-top: 0;
+            color: #b22222;
+        }
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.5em;
+            color: #b22222;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+         .navbar {
+            background: linear-gradient(90deg, #800000 60%, #b22222 100%);
+            box-shadow: 0 2px 8px rgba(128,0,0,0.13);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+        .navbar a, .dropbtn {
+            font-size: 1em;
+            color: #fff;
+            text-align: center;
+            padding: 16px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            background: none;
+            cursor: pointer;
+            outline: none;
+        }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background: #a83232;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #fff;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(128,0,0,0.13);
+            z-index: 1;
+            border-radius: 0 0 10px 10px;
+            left: 0;
+            top: 100%;
+        }
+        .dropdown-content a {
+            color: #800000;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        .dropdown-content a:hover {
+            background: #f5eaea;
+            color: #b22222;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .navbar .right {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ffe259;
+            letter-spacing: 2px;
+            padding: 16px 32px;
+            background: none;
+            text-shadow: 1px 1px 4px #80000080;
+        }
+        @media (max-width: 700px) {
+            .navbar a, .dropbtn, .dropdown-content a, .navbar .right {
+                padding: 12px 10px;
+                font-size: 0.95em;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar .right {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+      <div class="navbar">
+        <div class="navbar-menu">
+            <a href="home.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Produk 1 ▼</button>
+                <div class="dropdown-content">
+                    <a href="ling.html">LING</a>
+                    <a href="lancelot.html">LANCELOT</a>
+                    <a href="hayabusa.html">HAYABUSA</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Produk 2 ▼</button>
+                <div class="dropdown-content">
+                    <a href="grangger.html">GRANGGER</a>
+                    <a href="irithel.html">IRITHEL</a>
+                    <a href="harith.html">HARITH</a>
+                </div>
+            </div>
+            <a href="tentang.html">Tentang</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+        <span class="right" onclick="window.location.href='cover.html'">Rhizzz</span>
+    </div>
+    <h1 style="text-align:center; margin-top:32px;">Lancelot</h1>
+    <div class="produk-container">
+        <div class="produk-card">
+            <img src="https://static.upoint.id/images/news/1678573603buildlancelotmobilelegends.jpg" alt="1">
+            <h3>Lancelot Dawning</h3>
+            <button onclick="showPopup(0)">Lihat Deskripsi</button>
+            <button onclick="window.location.href='form.html'">Beli Sekarang</button>
+        </div>
+        <div class="produk-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-0EcbhqgocuFA8aGq9cMBp2sHhDylqzbmVg&s" alt="2">
+            <h3>Lancelot Zodiac</h3>
+            <button onclick="showPopup(1)">Lihat Deskripsi</button>
+            <button onclick="window.location.href='form.html'">Beli Sekarang</button>
+        </div>
+        <div class="produk-card">
+            <img src="https://cdn.oneesports.id/cdn-data/sites/2/2022/02/MLBB_skin-Kishin-Densetsu_Lancelot_2025.jpg" alt="3">
+            <h3>Lancelot Zenith</h3>
+            <button onclick="showPopup(2)">Lihat Deskripsi</button>
+            <button onclick="window.location.href='form.html'">Beli Sekarang</button>
+        </div>
+        <div class="produk-card">
+            <img src="https://cdn.oneesports.gg/cdn-data/sites/2/2021/07/MLBB_BrenEsportsLancelot-1024x633-1.jpeg" alt="4">
+            <h3>Lancelot Champion</h3>
+            <button onclick="showPopup(3)">Lihat Deskripsi</button>
+            <button onclick="window.location.href='form.html'">Beli Sekarang</button>
+        </div>
+    </div>
+
+    
+    <div class="popup-bg" id="popupBg">
+        <div class="popup-content" id="popupContent">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h2 id="popupTitle"></h2>
+            <p id="popupDesc"></p>
+        </div>
+    </div>
+
+    <script>
+        const produkData = [
+            {
+                title: "Lancelot Dawning",
+                desc: "Lancelot dawning adalah produk dengan desain elegan dan material berkualitas."
+            },
+            {
+                title: "Lancelot Zodiac",
+                desc: "Lancelot zodiac menggabungkan teknologi modern dengan desain klasik, cocok untuk Anda yang menginginkan gaya dan performa."
+            },
+            {
+                title: "Lancelot Zenith",
+                desc: "Lancelot zenith menawarkan fitur eksklusif dan kenyamanan maksimal, pilihan terbaik untuk Anda yang mengutamakan kualitas."
+            },
+            {
+                title: "Lancelot Champion",
+                desc: "Lancelot champion diproduksi terbatas dengan desain unik dan koleksi spesial, cocok untuk kolektor."
+            }
+        ];
+
+        function showPopup(idx) {
+            document.getElementById('popupTitle').innerText = produkData[idx].title;
+            document.getElementById('popupDesc').innerText = produkData[idx].desc;
+            document.getElementById('popupBg').classList.add('active');
+        }
+        function closePopup() {
+            document.getElementById('popupBg').classList.remove('active');
+        }
+        document.getElementById('popupBg').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+    </script>
+</body>
+</html>

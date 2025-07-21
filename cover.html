@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #800000 0%, #b22222 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(80, 0, 0, 0.97);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(80,0,0,0.18);
+            position: relative;
+        }
+        .header img {
+            height: 70px;
+            vertical-align: middle;
+            margin-right: 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(80,0,0,0.2);
+            background: #fff;
+            padding: 6px;
+        }
+        .header .kampus {
+            font-size: 2.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ffb347 0%, #ff5252 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .container {
+            background: rgba(255,255,255,0.98);
+            max-width: 480px;
+            margin: 40px auto 0 auto;
+            padding: 36px 32px 32px 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(128,0,0,0.18);
+            text-align: center;
+            position: relative;
+        }
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 22px;
+            border: 5px solid #b22222;
+            box-shadow: 0 4px 16px rgba(128,0,0,0.18);
+            background: #fff;
+        }
+        .biodata {
+            text-align: left;
+            margin: 0 auto;
+            display: inline-block;
+            font-size: 1.1em;
+            color: #222;
+            background: rgba(178,34,34,0.07);
+            border-radius: 10px;
+            padding: 18px 28px;
+            box-shadow: 0 2px 8px rgba(128,0,0,0.07);
+        }
+        .biodata th {
+            text-align: left;
+            color: #800000;
+            font-weight: 600;
+            padding-right: 12px;
+        }
+        .biodata td {
+            color: #333;
+        }
+        .container::after {
+            content: "";
+            position: absolute;
+            top: -18px; left: 50%;
+            transform: translateX(-50%);
+            width: 80px; height: 6px;
+            background: linear-gradient(90deg, #b22222, #800000, #ffb347);
+            border-radius: 6px;
+            opacity: 0.7;
+        }
+        .next-btn {
+            margin-top: 30px;
+            padding: 12px 38px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #b22222 60%, #ff5252 100%);
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 16px rgba(128,0,0,0.13);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .next-btn:hover {
+            background: linear-gradient(90deg, #ff5252 0%, #b22222 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 6px;
+            }
+            .biodata {
+                padding: 10px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/id/2/29/Logo_Institut_Teknologi_dan_Bisnis_Ahmad_Dahlan_Jakarta.png" alt="Logo Kampus">
+        <div class="kampus">ITB AD JAKARTA</div>
+    </div>
+    <div class="container">
+        <img src="ariz.jpg" alt="Foto Mahasiswa" class="profile-img">
+        <table class="biodata">
+            <tr>
+                <th>Nama</th>
+                <td>: Ariz Kardiansyah</td>
+            </tr>
+            <tr>
+                <th>NIM</th>
+                <td>: 2457201051</td>
+            </tr>
+            <tr>
+                <th>Jurusan</th>
+                <td>: Sistem Informasi</td>
+            </tr>
+            <tr>
+                <th>Fakultas</th>
+                <td>: Teknik dan Desain</td>
+            </tr>
+            <tr>
+                <th>Mata Kuliah</th>
+                <td>: Perancangan Web</td>
+            </tr>
+        </table>
+        <button class="next-btn" onclick="window.location.href='home.html'">Next &rarr;</button>
